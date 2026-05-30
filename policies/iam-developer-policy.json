@@ -1,0 +1,30 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "ManageCoreServices",
+            "Effect": "Allow",
+            "Action": [
+                "s3:*",
+                "lambda:*",
+                "iam:CreateRole",
+                "iam:AttachRolePolicy",
+                "iam:PutRolePolicy",
+                "iam:CreatePolicy",
+                "iam:GetRole",
+                "iam:GetPolicy",
+                "iam:ListRolePolicies",
+                "iam:ListAttachedRolePolicies",
+                "iam:ListPolicies",
+                "access-analyzer:ListPolicyGenerations"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "StrictPassRoleForLambda",
+            "Effect": "Allow",
+            "Action": "iam:PassRole",
+            "Resource": "arn:aws:iam::<YOUR_AWS_ACCOUNT_ID>:role/*"
+        }
+    ]
+}
